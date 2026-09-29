@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#7c4dff"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Nihongo">
+<title>Nihongo Grammar: Chapters 15–17</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f5f7;--card:#fff;--ink:#16202b;--mute:#5d6b79;--line:#d8e0e6;--ac:#1d6f8c;--ac2:#e7f2f6;--hi:#f3c74a;--ok:#1f7a4d;--bad:#b3362b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a24;--card:#172431;--ink:#e8eef3;--mute:#93a3b2;--line:#28394a;--ac:#6cc0dd;--ac2:#1b3342;--ok:#5fd394;--bad:#ff8a7d}}
+:root[data-theme="dark"]{--bg:#0f1a24;--card:#172431;--ink:#e8eef3;--mute:#93a3b2;--line:#28394a;--ac:#6cc0dd;--ac2:#1b3342;--ok:#5fd394;--bad:#ff8a7d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;line-height:1.6}
+header{padding:20px 16px 0;max-width:760px;margin:0 auto}
+h1{font-size:1.5rem;margin:0 0 2px;font-weight:900}
+.sub{color:var(--mute);font-size:.9rem;margin:0 0 14px}
+nav{display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:env(safe-area-inset-top,0px);background:#fffaf0;padding:8px 0;z-index:5}
+nav button{flex:1 1 auto;padding:9px 12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;font:inherit;font-weight:700;cursor:pointer}
+nav button[aria-selected=true]{background:var(--ac);border-color:var(--ac);color:#fff}
+:root[data-theme="dark"] nav button[aria-selected=true],:root:not([data-theme="light"]) nav button[aria-selected=true]{color:#0f1a24}
+button:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+main{max-width:760px;margin:0 auto;padding:8px 16px 48px}
+.tools{display:flex;justify-content:space-between;align-items:center;margin:6px 0 12px;color:var(--mute);font-size:.85rem}
+.tools button{font:inherit;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:5px 10px;cursor:pointer}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.card h2{font-size:1.1rem;margin:0 0 4px}
+.pat{display:block;background:var(--ac2);border-left:4px solid var(--ac);padding:8px 12px;border-radius:0 8px 8px 0;font-weight:700;margin:8px 0;overflow-x:auto}
+.note{color:var(--mute);font-size:.92rem;margin:4px 0 8px}
+.ex{padding:8px 0;border-top:1px dashed var(--line)}
+.ex .jp{font-size:1.08rem}
+.ex .en{color:var(--mute);font-size:.9rem}
+.hide-en .ex .en{visibility:hidden;cursor:pointer}
+.hide-en .ex .en:hover,.hide-en .ex.on .en{visibility:visible}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.98rem;min-width:420px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left}
+th{color:var(--mute);font-weight:700;font-size:.85rem}
+mark{background:var(--hi);color:#16202b;padding:0 3px;border-radius:3px}
+.q{font-size:1.5rem;font-weight:900;margin:8px 0}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opts button,.btn{font:inherit;font-size:1.05rem;padding:12px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.opts button.ok{border-color:var(--ok);background:var(--ok);color:#fff}
+.opts button.bad{border-color:var(--bad);background:var(--bad);color:#fff}
+.btn{background:var(--ac);border-color:var(--ac);color:#fff;font-weight:700;margin-top:10px}
+.score{font-weight:700;color:var(--ac)}
+.fc{cursor:pointer;min-height:140px;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.fc .jp{font-size:1.3rem}
+.modes{display:flex;gap:6px;margin-bottom:12px}
+.modes button{flex:1;padding:8px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+.modes button.on{border-color:var(--ac);color:var(--ac);font-weight:700}
+@media(max-width:420px){.opts{grid-template-columns:1fr}}
+
+:root{--bg:#f5f0ff;--card:#fff;--ink:#241a4b;--mute:#5f5788;--line:#e3dbf7;--hi:#ffd43b;--c:#7c4dff}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#fffaf0;--card:#fff;--ink:#241a4b;--mute:#5f5788;--line:#e3dbf7}:root:not([data-theme="light"]) body{background:#fffaf0}}
+body{background:#fffaf0}
+main.t-c15{--c:#ff3d81}main.t-c16{--c:#ff8a00}main.t-c17{--c:#12b886}main.t-drill{--c:#7c4dff}
+h1{font-size:1.9rem;background:linear-gradient(90deg,#ff3d81,#ff8a00,#12b886,#7c4dff);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav button{border-width:2.5px;border-radius:14px;box-shadow:0 3px 0 var(--line)}
+nav button[data-k=c15]{border-color:#ff3d81}nav button[data-k=c16]{border-color:#ff8a00}nav button[data-k=c17]{border-color:#12b886}nav button[data-k=drill]{border-color:#7c4dff}
+nav button[aria-selected=true]{color:#fff!important}
+nav button[data-k=c15][aria-selected=true]{background:#ff3d81!important}nav button[data-k=c16][aria-selected=true]{background:#ff8a00!important}nav button[data-k=c17][aria-selected=true]{background:#12b886!important}nav button[data-k=drill][aria-selected=true]{background:#7c4dff!important}
+main>h2{color:var(--c)}
+.card{border:2.5px solid var(--c);border-radius:18px;box-shadow:5px 5px 0 var(--c)}
+.card h2{display:flex;align-items:center;gap:8px;color:var(--c)}
+.em{font-size:1.6rem}
+.pat{background:color-mix(in srgb,var(--c) 14%,var(--card));border-left-color:var(--c)}
+.ex{border-top:2px dotted color-mix(in srgb,var(--c) 45%,transparent)}
+th{color:var(--c)}
+.btn{background:var(--c);border-color:var(--c)}
+.modes button.on{border-color:var(--c);color:var(--c);background:color-mix(in srgb,var(--c) 14%,var(--card))}
+.tools{flex-wrap:wrap;gap:8px}
+.tools button,#fb{border-color:var(--c);color:var(--c);font-weight:700;margin-left:4px}
+#fb{font:inherit;background:var(--card);border:2px solid #7c4dff;color:#7c4dff;border-radius:99px;padding:3px 12px;cursor:pointer}
+.score{color:var(--c)}
+mark{background:linear-gradient(transparent 40%,#ffd43b 40%);color:inherit}
+rt{font-size:.52em;color:var(--c);font-weight:700}
+.nofuri rt{display:none}
+.ex .jp,.fc .jp,.q{line-height:2.1}
+main.t-mock{--c:#1c7ed6}nav button[data-k=mock]{border-color:#1c7ed6}nav button[data-k=mock][aria-selected=true]{background:#1c7ed6!important}
+.mopts{grid-template-columns:1fr!important}.mopts button{text-align:left}.opts button.sel{border-color:var(--c);background:color-mix(in srgb,var(--c) 18%,var(--card))}
+.opts button:disabled:not(.ok):not(.bad){color:var(--ink);opacity:1}.pick{display:block;width:100%;text-align:left;margin-bottom:10px;font:inherit;padding:14px;border-radius:14px;border:2.5px solid var(--c);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:4px 4px 0 var(--c)}
+.g{padding:1px 9px;border-radius:99px;color:#fff;font-weight:700;font-size:.85rem}.g1{background:#3b82f6}.g2{background:#12b886}.g3{background:#f76707}
+</style>
+</head>
+<body>
+<header>
+<h1>日本語 文法ノート</h1>
+<p class="sub">Chapters 15, 16 and 17: study the patterns, then drill them.</p><p class="sub"><button id="fb" onclick="furi=!furi;render()"></button></p>
+<nav id="nav" role="tablist"></nav>
+</header>
+<main id="app"></main>
+<script>
+const P=(t,n,ex,extra)=>({t,n,ex,extra});
+const C15=[
+P("1. Asking which of two is more","Compare two items and ask which has more of a quality.","A と B と どちらのほうが [Adj] ですか",[["中野と新中野と どちらのほうが近いですか。","Which is closer, Nakano or Shin-Nakano?"],["東京と大阪と どちらのほうが人口が多いですか。","Which has a larger population, Tokyo or Osaka?"]]),
+P("2. Answering with emphasis","ずっと means “much more”; より means “than”.","A のほうが (B より) [Adj] です / A のほうが ずっと [Adj] です",[["中野のほうが新中野より近いです。","Nakano is closer than Shin-Nakano."],["サッカーのほうが ずっと人気があります。","Soccer is by far more popular."]]),
+P("3. Equal comparison","Both items rate about the same.","A も B も 同じぐらい [Adj] です / どちらも同じぐらい [Adj] です",[["新宿も渋谷も同じぐらいにぎやかです。","Shinjuku and Shibuya are about equally lively."],["日本語と英語はどちらも同じぐらい難しいです。","Japanese and English are about equally difficult."]]),
+P("4. Too much: ～すぎます","Goes beyond the acceptable limit (usually bad). い-adj: drop い. な-adj: base. Verb: masu-stem.","い-Adj(−い) / な-Adj / Verb(ます-stem) + すぎます",[["このアパートは駅から遠すぎます。","This apartment is too far from the station."],["お酒を飲みすぎると、頭が痛くなります。","If I drink too much, I get a headache."]]),
+P("5. Asking for the top one","Pick the number one among three or more.","[Group] の中で [Q-word] がいちばん [Adj] ですか",[["スポーツの中で何がいちばん好きですか。","Among sports, what do you like most?"],["一年の中でいつがいちばん雨が多いですか。","When does it rain the most in a year?"]]),
+P("6. Describing an attribute (は…が…)","Pick out one feature of the topic and evaluate it.","[Topic] は [Feature] が [Adj] です",[["この中野の部屋は台所が広いです。","As for this Nakano room, the kitchen is spacious."],["このアパートは家賃が安いです。","As for this apartment, the rent is cheap."]]),
+P("7. A is more than B (より)","State directly that A has more of a quality than B.","A は B より [Adj] です",[["弟は私より3歳年下です。","My younger brother is 3 years younger than me."],["中国は日本よりずっと広いですが、寒いです。","China is much larger than Japan, but it is cold."]]),
+P("8. The most (いちばん)","A ranks highest in its group.","A は [Group] の中で いちばん [Adj] です",[["このカメラはこのみっつの中でいちばん軽いです。","This camera is the lightest of these three."],["琵琶湖は日本でいちばん大きい湖です。","Lake Biwa is the largest lake in Japan."]])
+];
+const C16=[
+P("1. Explaining with んです","Gives a reason, adds emphasis or asks for an explanation. Plain verb + んです; な-adj / noun + なんです.","Verb(plain) + んです / な-Adj・Noun + なんです",[["今日は母の誕生日なんです。","Today is my mother’s birthday."],["大変なんです。","It’s tough."]]),
+P("2. Turning verbs into nouns: こと","Plain verb + こと. Use for hobbies, ability and experience.","Verb(plain) + こと",[["私の趣味は映画を見ることです。","My hobby is watching movies."],["母の料理を食べることができればいいです。","It would be good if I could eat my mother’s cooking."],["この旅行でいちばん楽しかったことは何ですか。","What was the most fun thing on this trip?"]]),
+P("3. Requests: ～てください / ～ないでください","て-form + ください asks someone to do it. ない-form + でください asks them not to.","V(て) + ください / V(ない) + でください",[["シャワーを浴びてください。","Please take a shower."],["ここにごみを捨てないでください。","Please do not throw trash here."],["芝生に入らないでください。","Please do not enter the lawn."]]),
+P("4. Timing: 前に / 後で / まで","前に: dictionary form. 後で: た-form. まで: dictionary form.","V(dict) + 前に / V(た) + 後で / V(dict) + まで",[["ごはんを食べる前に、飲んでください。","Please drink it before eating."],["ごはんを食べた後で、歯をみがきます。","After eating, I brush my teeth."],["チンさんが来るまで喫茶店にいます。","I’ll be at the café until Mr. Chin comes."]]),
+P("5. Explaining the past: ～たんです","た-form + んです explains what happened and why you are in this situation now.","V(た) + んです",[["どうしたんですか。","What happened?"],["階段から落ちたんです。","I fell down the stairs."],["冷やしたんですが、また痛いんです。","I cooled it, but it hurts again."]])
+];
+const V=[["働く","はたらく","働ける","働けない","G1"],["話す","はなす","話せる","話せない","G1"],["泳ぐ","およぐ","泳げる","泳げない","G1"],["選ぶ","えらぶ","選べる","選べない","G1"],["弾く","ひく","弾ける","弾けない","G1"],["覚える","おぼえる","覚えられる","覚えられない","G2"],["起きる","おきる","起きられる","起きられない","G2"],["食べる","たべる","食べられる","食べられない","G2"],["する","","できる","できない","G3"],["来る","くる","来られる","来られない","G3"]];
+const E17=[["ピアノが弾けます。","I can play the piano."],["漢字が読めますか。","Can you read Kanji?"],["車の運転ができます。","I can drive a car."],["自転車に乗れます。","I can ride a bicycle."],["明日来られます。","I can come tomorrow."],["刺身が食べられません。","I cannot eat sashimi."],["忙しくて、どこへも行けません。","I’m busy and can’t go anywhere."],["難しくて覚えられません。","It’s difficult, so I can’t remember it."],["荷物が多くて、持てません。","There are many bags, so I can’t carry them."],["お酒が飲めません。","I cannot drink alcohol."],["週3日以上できる方","Someone who can do 3+ days a week"],["日本語が話せる人","A person who can speak Japanese"],["泳ぐことができない人","A person who cannot swim"]];
+const ALL=[...C15,...C16].flatMap(p=>p.ex).concat(E17);
+const tabs=[["c15","Ch. 15"],["c16","Ch. 16"],["c17","Ch. 17"],["drill","Drill"],["mock","Mock Test"]];
+let tab="c15",hide=false,furi=true,mode="mc",sc={r:0,n:0},cur=null,fcI=0,fcShow=false;
+const $=s=>document.querySelector(s);
+const sh=a=>[...a].sort(()=>Math.random()-.5);
+function nav(){$("#nav").innerHTML=tabs.map(([k,l])=>`<button role="tab" data-k="${k}" aria-selected="${k===tab}" onclick="go('${k}')">${l}</button>`).join("")}
+function go(k){tab=k;render()}
+function exs(a){return a.map(([j,e])=>`<div class="ex" onclick="this.classList.toggle('on')"><div class="jp">${j}</div><div class="en">${e}</div></div>`).join("")}
+const EM=[["⚖️","💪","🤝","🍰","🏆","🔍","📏","👑"],["💬","📦","🙏","⏰","📖"]];
+function cards(list,title,sub,em){return `<h2 style="margin:6px 0 2px">${title}</h2><p class="note">${sub}</p>`+tools()+`<div class="${hide?'hide-en':''}">`+list.map((p,i)=>`<section class="card"><h2><span class="em">${EM[em][i]}</span>${p.t}</h2><p class="note">${p.n}</p><code class="pat">${p.ex}</code>${exs(p.extra)}</section>`).join("")+`</div>`}
+function tools(){return `<div class="tools"><span>${hide?"Tap a sentence to reveal English":"Study tools"}</span><span><button onclick="hide=!hide;render()">${hide?"Show English":"Hide English"}</button><button onclick="furi=!furi;render()">${furi?"Hide Furigana":"Show Furigana"}</button></span></div>`}
+function c17(){
+const rows=V.map(v=>`<tr><td>${v[0]}</td><td>${v[2]}</td><td>${v[3]}</td><td><span class="g g${v[4][1]}">${v[4]}</span></td></tr>`).join("");
+return `<h2 style="margin:6px 0 2px">第17課 可能形</h2><p class="note">The potential form says you can do something, or that circumstances allow it.</p>
+<section class="card"><h2><span class="em">🔧</span>How to form it</h2>
+<p><b>Group 1:</b> change the final <mark>う</mark>-row sound to the <mark>え</mark>-row and add る. 話す → 話せる</p>
+<p><b>Group 2:</b> drop る and add <mark>られる</mark>. 食べる → 食べられる</p>
+<p><b>Group 3:</b> する → <mark>できる</mark>; 来る → <mark>来られる</mark></p>
+<p>Negative: swap る for ない. 読める → 読めない</p>
+<div class="tw"><table><tr><th>Dictionary</th><th>Affirmative</th><th>Negative</th><th>Group</th></tr>${rows}</table></div></section>
+<section class="card"><h2><span class="em">🔄</span>Particle change: を → が</h2><p class="note">The direct object usually takes が with the potential form.</p>
+<div class="ex"><div class="jp">中国語を話します。</div></div><div class="ex"><div class="jp">中国語<mark>が</mark>話せます。</div><div class="en">I can speak Chinese.</div></div></section>
+<section class="card"><h2><span class="em">✨</span>Examples</h2>${tools()}<div class="${hide?'hide-en':''}">${exs(E17)}</div></section>
+<section class="card"><h2><span class="em">🧩</span>Modifying nouns</h2><code class="pat">Potential verb (plain) + Noun</code><p class="note">日本語が話せる人 · 来週から始められる方 · ピアノが弾ける方</p></section>`}
+function drill(){
+const m=`<div class="modes"><button class="${mode==='mc'?'on':''}" onclick="mode='mc';cur=null;render()">Potential quiz</button><button class="${mode==='fc'?'on':''}" onclick="mode='fc';render()">Flashcards</button></div>`;
+if(mode==="fc"){const [j,e]=ALL[fcI];return m+`<div class="card fc" onclick="fcShow=!fcShow;render()"><div class="jp">${j}</div><div class="en note">${fcShow?e:"Tap to reveal the meaning"}</div></div><div style="display:flex;gap:8px"><button class="btn" style="flex:1" onclick="fcI=(fcI+ALL.length-1)%ALL.length;fcShow=false;render()">Back</button><button class="btn" style="flex:1" onclick="fcI=Math.floor(Math.random()*ALL.length);fcShow=false;render()">Random</button><button class="btn" style="flex:1" onclick="fcI=(fcI+1)%ALL.length;fcShow=false;render()">Next</button></div><p class="note">${fcI+1} of ${ALL.length}</p>`}
+if(!cur){const v=V[Math.floor(Math.random()*V.length)],neg=Math.random()<.5,ans=v[neg?3:2];
+const wrong=sh(V.flatMap(x=>[x[2],x[3]]).filter(x=>x!==ans&&x!==v[0])).slice(0,3);
+const dist=[neg?v[2]:v[3],...wrong].filter((x,i,a)=>a.indexOf(x)===i).slice(0,3);
+cur={v,neg,ans,opts:sh([ans,...dist]),done:null}}
+const c=cur;
+return m+`<div class="card"><p class="note">Give the ${c.neg?"negative":"affirmative"} potential form (${c.v[4]}).</p><div class="q">${c.v[0]}</div>
+<div class="opts">${c.opts.map(o=>`<button class="${c.done?(o===c.ans?'ok':(o===c.done?'bad':'')):''}" ${c.done?'disabled':''} onclick="pick('${o}')">${o}</button>`).join("")}</div>
+${c.done?`<p class="q">${c.done===c.ans?"🎉 Correct!":"😅 Answer: "+c.ans}</p><button class="btn" onclick="cur=null;render()">Next question</button>`:""}<p class="score">Score: ${sc.r} / ${sc.n}</p></div>`}
+function pick(o){if(cur.done)return;cur.done=o;sc.n++;if(o===cur.ans)sc.r++;render()}
+
+const B={
+c15:[["東京と大阪と（　）のほうが人口が多いですか。","どちら",["どれ","だれ","いつ"],"Comparing two items uses どちらのほうが."],
+["中野のほうが新中野（　）近いです。","より",["から","まで","で"],"より marks the thing compared against (than)."],
+["この部屋はちょっと狭（　）ますね。","すぎ",["くて","すぎる","すき"],"Adjective stem + すぎます = too ~."],
+["スポーツの中で何（　）いちばん好きですか。","が",["を","に","へ"],"Superlative questions: Q-word + が + いちばん."],
+["日本語と英語は（　）同じぐらい難しいです。","どちらも",["どれが","どちらに","だれも"],"Equal comparison: どちらも同じぐらい."],
+["この部屋は台所（　）広いです。","が",["を","に","へ"],"Topic は Feature が Adjective."],
+["この部屋は三つの部屋の（　）いちばん新しいです。","中で",["より","ずっと","ほう"],"Group の中で いちばん."],
+["サッカーのほうが（　）人気があります。","ずっと",["いちばん","すぎ","どちら"],"ずっと = much more."],
+["お酒を飲み（　）と、頭が痛くなります。","すぎる",["すぎ","すぎて","すぎた"],"Before と use the dictionary form: すぎる."],
+["琵琶湖は日本（　）いちばん大きい湖です。","で",["より","が","に"],"Group + で/の中で + いちばん."],
+["“A は B より 大きいです” means:","A is bigger than B",["B is bigger than A","A and B are equal","A is the biggest of all"],"A は B より = A is more than B."],
+["一年の中で（　）がいちばん雨が多いですか。","いつ",["どこ","だれ","なに"],"A question about time uses いつ."]],
+c16:[["今日は母の誕生日（　）んです。","な",["の","だ","で"],"Noun + なんです."],
+["私の趣味は映画を見る（　）です。","こと",["もの","ところ","とき"],"Verb (plain) + こと turns a verb into a noun."],
+["ここにごみを捨て（　）ください。","ないで",["なくて","ないと","ません"],"ない-form + でください = please don’t."],
+["シャワーを浴び（　）ください。","て",["た","ない","ます"],"て-form + ください = please do."],
+["ごはんを（　）前に、薬を飲んでください。","食べる",["食べた","食べて","食べない"],"前に takes the dictionary form."],
+["ごはんを（　）後で、歯をみがきます。","食べた",["食べる","食べない","食べて"],"後で takes the た-form."],
+["チンさんが（　）まで、喫茶店にいます。","来る",["来た","来て","来ない"],"まで takes the dictionary form."],
+["階段から落ち（　）んです。","た",["て","る","ます"],"た-form + んです explains a past event."],
+["“痛いんです” is used to:","Explain your situation",["Order someone","Ask permission","Refuse an offer"],"んです gives explanation or reason."],
+["芝生に（　）ないでください。","入ら",["入り","入る","入って"],"Group 1 verb: 入る → 入らない."],
+["Choose the Japanese for “Please don’t eat.”","食べないでください。",["食べてください。","食べないください。","食べなくてください。"],"V(ない) + でください."],
+["「どうしたんですか。」に答えてください。","階段から落ちたんです。",["階段から落ちてんです。","階段から落ちますんです。","階段を落ちんです。"],"Past explanation: V(た) + んです."]],
+c17:[["ピアノ（　）弾けます。","が",["を","に","で"],"With the potential form, を usually becomes が."],
+["刺身が食べ（　）ません。","られ",["れ","せ","ら"],"Group 2: drop る + られる."],
+["車の運転が（　）ます。","でき",["し","できる","できて"],"する → できる."],
+["Choose the Japanese for “I cannot come to school tomorrow.”","明日は学校へ来られません。",["明日は学校へ来ません。","明日は学校へ来るられません。","明日は学校へ来りません。"],"来る → 来られる (こられる)."],
+["日本語の新聞が（　）ません。","読め",["読み","読む","読ま"],"Group 1: む → める."],
+["お酒が（　）ません。","飲め",["飲み","飲ま","飲む"],"Group 1: 飲む → 飲める."],
+["The potential form of する is:","できる",["しられる","すれる","しれる"],"する is irregular: できる."],
+["“泳ぐことができない人” means:","A person who cannot swim",["A person who likes swimming","A person who swims often","A person who wants to swim"],"V + ことができない = cannot do."],
+["荷物が多くて、（　）ません。","持て",["持ち","持つ","持ま"],"Group 1: 持つ → 持てる."],
+["How do you form the potential of a Group 2 verb?","Drop る + られる",["Change う-row to え-row + る","Add ことがない","Add ますます"],"Group 2: 食べる → 食べられる."],
+["来週から（　）方","始められる",["始まれる","始める","始めよう"],"始める (Group 2) → 始められる."],
+["Which is the negative potential of 話す?","話せない",["話さない","話しない","話せなくない"],"Group 1: す → せる → せない."]]};
+const RD={
+c15:[["私の部屋は中野にあります。新宿の部屋より駅から近いですが、少し狭いです。台所は広くて、家賃は安いです。",[["Compared with the Shinjuku room, this room is…","closer to the station",["farther from the station","bigger","newer"],"駅から近い."],["Which part of the room is spacious?","The kitchen",["The window","The bedroom","The entrance"],"台所は広い."]]],
+["東京は日本の都市の中でいちばん人口が多いです。大阪も人が多いですが、東京のほうがずっと多いです。",[["Which city has the largest population?","Tokyo",["Osaka","Both are equal","Not stated"],"いちばん人口が多い."],["Compared with Tokyo, Osaka has…","fewer people",["more people","the same number","no people"],"東京のほうがずっと多い."]]]],
+c16:[["昨日、階段から落ちたんです。冷やしたんですが、まだ痛いんです。今日は病院へいきます。",[["Why is the speaker going to the hospital?","Fell and still has pain",["Wants to rest","Visiting a friend","Has a test"],"Explanation with んです."],["What did the speaker do after falling?","Cooled it",["Took a shower","Ate lunch","Slept"],"冷やした."]]],
+["ごはんを食べる前に、薬を飲んでください。ごはんを食べた後で、歯をみがきます。",[["When should you take the medicine?","Before eating",["After eating","While eating","Before sleeping"],"食べる前に."],["When does the speaker brush their teeth?","After eating",["Before eating","Never","Before waking up"],"食べた後で."]]]],
+c17:[["アルバイト募集。週3日以上できる方。パソコン入力ができる方。来週から始められる方。",[["How many days a week must you be able to work?","3 or more",["1 or 2","Every day","Weekends only"],"週3日以上できる方."],["When must you be able to start?","From next week",["Today","Next month","Tomorrow"],"来週から始められる方."]]],
+["私は泳ぐことができません。でも、ピアノが弾けます。刺身は食べられませんが、日本料理が作れます。",[["What can’t the speaker do?","Swim and eat sashimi",["Play piano and cook","Swim and cook","Eat sashimi and play piano"],"泳ぐことができません / 食べられません."],["What can the speaker do?","Play piano and make Japanese food",["Swim and eat sashimi","Swim and play piano","Eat sashimi and cook"],"弾けます / 作れます."]]]]};
+const mk=(q,a,w,e)=>{const o=sh([a,...w]);return{q,o,a:o.indexOf(a),e}};
+function gen17(){const v=V[Math.floor(Math.random()*V.length)],neg=Math.random()<.5,a=v[neg?3:2];return mk(`Choose the ${neg?"negative":"affirmative"} potential form of 「${v[0]}」.`,a,sh(V.flatMap(x=>[x[2],x[3]]).filter(x=>x!==a)).slice(0,3),`${v[4]}: ${v[0]} → ${v[2]} / ${v[3]}`)}
+function build(ch){const bk=k=>sh(B[k]).map(x=>mk(...x)),rd=k=>{const r=RD[k][Math.floor(Math.random()*RD[k].length)];return r[1].map(x=>({...mk(...x),p:r[0]}))};
+let q;if(ch==="all")q=sh([...bk("c15").slice(0,2),...bk("c16").slice(0,2),...bk("c17").slice(0,2),gen17(),gen17()]).concat(rd(["c15","c16","c17"][Math.random()*3|0]));
+else if(ch==="c17")q=sh([...bk(ch).slice(0,5),gen17(),gen17(),gen17()]).concat(rd(ch));
+else q=bk(ch).slice(0,8).concat(rd(ch));
+return{ch,qs:q,ans:[],done:false}}
+let T=null;
+const NM={c15:"Chapter 15",c16:"Chapter 16",c17:"Chapter 17",all:"All chapters"};
+function ans(i,j){if(T.done)return;T.ans[i]=j;render()}
+function mock(){
+if(!T)return `<h2 style="margin:6px 0 2px">📝 Mock test</h2><p class="note">10 questions per test: grammar and reading. Every test picks and shuffles new questions.</p>`+[["c15","⚖️ Chapter 15 comparisons"],["c16","💬 Chapter 16 explaining and requests"],["c17","💪 Chapter 17 potential form"],["all","🎲 All chapters mixed"]].map(([k,l])=>`<button class="pick" onclick="T=build('${k}');render();scrollTo(0,0)">${l}</button>`).join("");
+const qs=T.qs;let last="",sc=qs.filter((x,i)=>T.ans[i]===x.a).length,n=T.ans.filter(x=>x!==undefined).length;
+const top=T.done?`<div class="card"><h2>🎯 Score: ${sc} / ${qs.length}</h2><p class="note">${sc===qs.length?"Perfect! 🎉":sc>=qs.length*.7?"Nice work! Review the ❌ items below.":"Keep going: read the explanations and try a new test."}</p></div>`:`<p class="note">${NM[T.ch]} · answered ${n} / ${qs.length}</p>`;
+const body=qs.map((x,i)=>{const ps=x.p&&x.p!==last?(last=x.p,`<div class="card"><h2>📖 Reading</h2><p class="jp" style="font-size:1.1rem;line-height:2.2">${x.p}</p></div>`):"";
+return ps+`<div class="card"><p><b>${i+1}.</b> ${x.q}</p><div class="opts mopts">${x.o.map((o,j)=>`<button class="${T.done?(j===x.a?"ok":T.ans[i]===j?"bad":""):(T.ans[i]===j?"sel":"")}" ${T.done?"disabled":""} onclick="ans(${i},${j})">${o}</button>`).join("")}</div>${T.done?`<p class="note">${T.ans[i]===x.a?"✅":"❌"} ${x.e}</p>`:""}</div>`}).join("");
+const foot=T.done?`<button class="btn" onclick="T=build(T.ch);render();scrollTo(0,0)">New test (new questions)</button> <button class="btn" onclick="T=null;render();scrollTo(0,0)">Change chapter</button>`:`<button class="btn" onclick="T.done=true;render();scrollTo(0,0)">Submit test</button>`;
+return top+body+foot}
+function render(){nav();document.body.classList.toggle("nofuri",!furi);$("#fb").textContent=furi?"Hide Furigana":"Show Furigana";const m=$("#app");m.className="t-"+tab;m.innerHTML=tab==="c15"?cards(C15,"第15課 Comparisons","Eight sentence patterns for comparing, ranking and describing.",0):tab==="c16"?cards(C16,"Chapter 16 Explaining and requesting","んです, こと, requests, timing clauses and past explanations.",1):tab==="c17"?c17():tab==="mock"?mock():drill();ruby(document.body)}
+const D="中野=なかの 新中野=しんなかの 近=ちか 東京=とうきょう 大阪=おおさか 人口=じんこう 人気=にんき 多=おお 新宿=しんじゅく 渋谷=しぶや 同=おな 難=むずか 遠=とお 駅=えき 飲=の 頭=あたま 痛=いた 一年=いちねん 雨=あめ 好=す 部屋=へや 台所=だいどころ 広=ひろ 家賃=やちん 安=やす 弟=おとうと 私=わたし 年下=としした 歳=さい 中国=ちゅうごく 日本語=にほんご 日本=にほん 英語=えいご 寒=さむ 軽=かる 琵琶湖=びわこ 湖=みずうみ 大|き=おお 大変=たいへん 大阪=おおさか 中=なか 第=だい 課=か 可能形=かのうけい 文法=ぶんぽう 今日=きょう 母=はは 誕生日=たんじょうび 趣味=しゅみ 映画=えいが 見=み 料理=りょうり 食=た 旅行=りょこう 楽=たの 何|が=なに 何|で=なん 何=なに 浴=あ 消化=しょうか 悪=わる 荷物=にもつ 物=もの 捨=す 芝生=しばふ 入=はい 前=まえ 後=あと 歯=は 来|る=く 来|られ=こ 来|ま=き 来週=らいしゅう 喫茶店=きっさてん 階段=かいだん 落=お 冷=ひ 働=はたら 話=はな 泳=およ 選=えら 弾=ひ 覚=おぼ 起=お 読=よ 漢字=かんじ 車=くるま 運転=うんてん 自転車=じてんしゃ 乗=の 明日=あした 刺身=さしみ 忙=いそが 行=い 持=も お酒=さけ 酒=さけ 週=しゅう 3日=みっか 以上=いじょう 方=かた 人=ひと 始=はじ 学校=がっこう 新聞=しんぶん 都市=とし 病院=びょういん 昨日=きのう 薬=くすり 募集=ぼしゅう 入力=にゅうりょく 作=つく 少=すこ 狭=せま 高=たか 新=あたら 来|た=き 来|て=き 来|い=こ 来|り=き 来|る=く";
+const FR=D.split(" ").map(e=>{const[k,r]=e.split("="),[kj,t]=k.split("|");return[kj,t||"",r]}).sort((a,b)=>b[0].length-a[0].length||(b[1]?1:0)-(a[1]?1:0));
+function ruby(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),ns=[];while(w.nextNode())ns.push(w.currentNode);
+ns.forEach(n=>{const t=n.nodeValue;if(!/[\u4e00-\u9fff]/.test(t)||n.parentNode.closest("ruby,script,style"))return;const f=document.createDocumentFragment();let i=0,b="";
+while(i<t.length){const h=FR.find(([k,tl])=>t.startsWith(k,i)&&(!tl||t.startsWith(tl,i+k.length)));
+if(h){if(b){f.append(b);b=""}const r=document.createElement("ruby");r.append(h[0]);const x=document.createElement("rt");x.textContent=h[2];r.append(x);f.append(r);i+=h[0].length}else b+=t[i++]}
+if(b)f.append(b);n.replaceWith(f)})}
+render();
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+</script>
+</body>
+</html>
