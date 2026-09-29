@@ -88,14 +88,30 @@ main.t-mock{--c:#1c7ed6}nav button[data-k=mock]{border-color:#1c7ed6}nav button[
 :root[data-theme="dark"] nav{background:#150d2e}
 :root[data-theme="dark"] mark{color:#241a4b}
 :root[data-theme="dark"] main.t-c15{--c:#ff5c99}:root[data-theme="dark"] main.t-c16{--c:#ffa63d}:root[data-theme="dark"] main.t-c17{--c:#2fd9a6}:root[data-theme="dark"] main.t-drill{--c:#a98bff}:root[data-theme="dark"] main.t-mock{--c:#4dabf7}
+main.t-c19{--c:#0c8599}nav button[data-k=c19]{border-color:#0c8599}nav button[data-k=c19][aria-selected=true]{background:#0c8599!important}
+:root[data-theme="dark"] main.t-c19{--c:#22b8cf}
+.more{margin:6px 0 8px;padding-left:20px}.more li{margin:4px 0}
+.sc{background:color-mix(in srgb,var(--c) 14%,var(--card));border:2px dashed var(--c);border-radius:14px;padding:8px;text-align:center;margin:14px 0 8px}.sc .big{font-size:2.1rem;letter-spacing:6px}.sc .note{margin:0}
+.row{display:flex;gap:8px;align-items:flex-end;margin:8px 0}.row.r{flex-direction:row-reverse}.av{font-size:1.8rem;flex:none}
+.bub{max-width:84%;background:var(--card);border:2px solid var(--c);border-radius:16px 16px 16px 4px;padding:6px 12px;cursor:pointer}.row.r .bub{border-radius:16px 16px 4px 16px;background:color-mix(in srgb,var(--c) 12%,var(--card))}
+.nm{font-size:.8rem;color:var(--c);font-weight:700}.jp2{font-size:1.05rem;line-height:2.1}.en2{color:var(--mute);font-size:.88rem}
+.hide-en .en2{visibility:hidden;cursor:pointer}.hide-en .on .en2,.hide-en .en2:hover{visibility:visible}
+#stick{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#fffaf0;padding:6px max(16px,calc((100% - 728px)/2)) 8px;box-shadow:0 3px 8px rgba(0,0,0,.12)}
+:root[data-theme="dark"] #stick{background:#150d2e}
+#stick nav{position:static;flex-wrap:nowrap;overflow-x:auto;padding:0 0 6px;background:none!important;gap:6px}
+#stick nav button{flex:0 0 auto;padding:7px 12px;font-size:.92rem}
+#bar{display:flex;gap:6px}
+#bar button{flex:1;font:inherit;font-size:.9rem;font-weight:700;padding:6px 8px;border-radius:99px;border:2px solid var(--c,#7c4dff);background:var(--card);color:var(--c,#7c4dff);cursor:pointer}
+#stick.t-c15{--c:#ff3d81}#stick.t-c16{--c:#ff8a00}#stick.t-c17{--c:#12b886}#stick.t-c19{--c:#0c8599}#stick.t-drill{--c:#7c4dff}#stick.t-mock{--c:#1c7ed6}
+:root[data-theme="dark"] #stick.t-c15{--c:#ff5c99}:root[data-theme="dark"] #stick.t-c16{--c:#ffa63d}:root[data-theme="dark"] #stick.t-c17{--c:#2fd9a6}:root[data-theme="dark"] #stick.t-c19{--c:#22b8cf}:root[data-theme="dark"] #stick.t-drill{--c:#a98bff}:root[data-theme="dark"] #stick.t-mock{--c:#4dabf7}
 </style>
 </head>
 <body>
 <header>
 <h1>日本語 文法ノート</h1>
-<p class="sub">Chapters 15, 16 and 17: study the patterns, then drill them.</p><p class="sub"><button id="fb" onclick="furi=!furi;render()"></button> <button id="tb" onclick="toggleTheme()"></button></p>
-<nav id="nav" role="tablist"></nav>
+<p class="sub">Chapters 15, 16 and 17: study the patterns, then drill them.</p>
 </header>
+<div id="stick"><nav id="nav" role="tablist"></nav><div id="bar"></div></div>
 <main id="app"></main>
 <script>
 const P=(t,n,ex,extra)=>({t,n,ex,extra});
@@ -116,19 +132,240 @@ P("3. Requests: ～てください / ～ないでください","て-form + く�
 P("4. Timing: 前に / 後で / まで","前に: dictionary form. 後で: た-form. まで: dictionary form.","V(dict) + 前に / V(た) + 後で / V(dict) + まで",[["ごはんを食べる前に、飲んでください。","Please drink it before eating."],["ごはんを食べた後で、歯をみがきます。","After eating, I brush my teeth."],["チンさんが来るまで喫茶店にいます。","I’ll be at the café until Mr. Chin comes."]]),
 P("5. Explaining the past: ～たんです","た-form + んです explains what happened and why you are in this situation now.","V(た) + んです",[["どうしたんですか。","What happened?"],["階段から落ちたんです。","I fell down the stairs."],["冷やしたんですが、また痛いんです。","I cooled it, but it hurts again."]])
 ];
+const C19=[
+P("1. Try doing it: ～てみます","Do something to see what it is like (try on, try eating, try out). て-form + みます.","V(て) + みます / みてもいいですか / みてください",[["このジーパンをはいてみます。","I’ll try on these jeans."],["この靴、はいてみてもいいですか。","May I try these shoes on?"],["いなりずしです。食べてみてください。","It’s inari sushi. Please try it."],["私も今度やってみたいです。","I want to try it next time too."]]),
+P("2. Make something ~: ～くします / ～にします","Change a state on purpose. い-adj: drop い + く + する. な-adj: + に + する.","い-Adj(−い) + くする / な-Adj + にする",[["少し短くしてください。","Please make it a little shorter."],["エアコンを弱くしましょう。","Let’s turn the air-con down."],["テーブルの上をきれいにしてください。","Please clean the table."],["前髪を短くしてください。","Please make my bangs shorter."]]),
+P("3. Oops, I did it: ～てしまいました","Something happened by accident, or you finished it completely. Often a regret. Casual: ～ちゃいました.","V(て) + しまいました / しまったんです",[["子供がいなくなってしまいました。","My child has gone missing."],["部屋のかぎをなくしてしまったんです。","I lost my room key."],["お皿を割ってしまいました。","I accidentally broke a plate."],["昨日は財布を忘れてしまったので、友達にお金を借りました。","I forgot my wallet yesterday, so I borrowed money from a friend."]]),
+P("4. While: ～間 / ～間に","間: the action lasts the whole time. 間に: something happens at some point during that time.","V(ている) / Noun の + 間、… / 間に、…",[["私が試着している間、ここで待っていてください。","Please wait here while I try clothes on."],["私が試着している間に、いなくなってしまったんです。","While I was trying them on, he went missing."],["電車に乗っている間、ずっと音楽を聞いていました。","I listened to music the whole time on the train."],["買い物をしている間に、財布を落としてしまいました。","I dropped my wallet while shopping."],["夏休みの間に、北海道へ行きます。","I’ll go to Hokkaido during summer vacation."]]),
+P("5. Wearing: ～ています","Wearing verbs use ています for the state. 着る (shirt, dress), かぶる (hat), かける (glasses), する (necklace, contacts), はく (pants, shoes).","Item を + 着て / かぶって / かけて / して / はいて + います",[["赤いTシャツを着ています。","He’s wearing a red T-shirt."],["白い帽子をかぶっていますよ。","She’s wearing a white hat."],["今日はコンタクトレンズをしているんです。","I’m wearing contact lenses today."],["白いワンピースを着て、ネックレスをしている人です。","It’s the person wearing a white dress and a necklace."]]),
+P("6. Giving directions: ～と","Verb (dictionary) + と = when you do this, this follows. Polite: ございます.","V(dict) + と、… があります / ございます",[["ここをまっすぐ行くと、エスカレーターがございます。","If you go straight from here, there is an escalator."],["右に曲がると、左側に帽子売場がございます。","If you turn right, the hat department is on the left."]])
+];
 const V=[["働く","はたらく","働ける","働けない","G1"],["話す","はなす","話せる","話せない","G1"],["泳ぐ","およぐ","泳げる","泳げない","G1"],["選ぶ","えらぶ","選べる","選べない","G1"],["弾く","ひく","弾ける","弾けない","G1"],["覚える","おぼえる","覚えられる","覚えられない","G2"],["起きる","おきる","起きられる","起きられない","G2"],["食べる","たべる","食べられる","食べられない","G2"],["する","","できる","できない","G3"],["来る","くる","来られる","来られない","G3"]];
 const E17=[["ピアノが弾けます。","I can play the piano."],["漢字が読めますか。","Can you read Kanji?"],["車の運転ができます。","I can drive a car."],["自転車に乗れます。","I can ride a bicycle."],["明日来られます。","I can come tomorrow."],["刺身が食べられません。","I cannot eat sashimi."],["忙しくて、どこへも行けません。","I’m busy and can’t go anywhere."],["難しくて覚えられません。","It’s difficult, so I can’t remember it."],["荷物が多くて、持てません。","There are many bags, so I can’t carry them."],["お酒が飲めません。","I cannot drink alcohol."],["週3日以上できる方","Someone who can do 3+ days a week"],["日本語が話せる人","A person who can speak Japanese"],["泳ぐことができない人","A person who cannot swim"]];
-const ALL=[...C15,...C16].flatMap(p=>p.ex).concat(E17);
-const tabs=[["c15","Ch. 15"],["c16","Ch. 16"],["c17","Ch. 17"],["drill","Drill"],["mock","Mock Test"]];
+const M19=[
+["Form: て-form + みる (みます / みて / みたい). Literally “do it and see”.","Use it for things you haven’t done yet: trying on clothes, tasting food, trying a new hobby.","Ask permission: ～てみてもいいですか (May I try…?). Invite: ～てみてください (Please try…).","Past: ～てみました = I tried it (and here’s what I found).","はく is for the legs and feet (jeans, skirts, shoes): はいてみます."],
+["い-adj: 大きい → 大きく + する. な-adj: きれい → きれい + にする.","Noun を + adj + する means someone changes it on purpose.","Compare Ch. 12: ～くなる / ～になる = it changes by itself. 高くなります (it gets high) vs 高くします (I make it high).","Requests: ～くしてください / ～にしてください. Suggestions: ～くしましょう.","Exception: いい → よくします."],
+["Two meanings: (1) an accident or regret: なくしてしまいました = I lost it, unfortunately. (2) finishing completely: ぜんぶ食べてしまいました = I ate it all.","Explaining trouble: ～てしまったんです (ん adds explanation, like Ch. 16).","Reason: ～てしまったので、… = because I (unfortunately) …","Casual speech: ～ちゃいました (落としちゃいました). Both mean the same.","いなくなる = go missing (いる → いなくなる)."],
+["Before 間: a verb in ている form (試着している間) or a noun + の (夏休みの間).","間 = the state lasts the whole time. ずっと fits well: ずっと音楽を聞いていました.","間に = one event happens at some point inside that time: 財布を落としてしまいました.","Tip: if the action cannot last (落とす, いなくなる, 食べた) use 間に.","The two parts can have different subjects: 弟がゲームをしている間に、僕はケーキを食べました."],
+["ています here describes a state: 着ています = is wearing. 着ます = puts on.","Verb by item: 着る (shirt, dress, kimono) · はく (pants, skirt, shoes) · かぶる (hat) · かける (glasses) · する (necklace, watch, contacts).","Not wearing: ～ていません (めがねをかけていません).","Describe a person: [wearing…] + 人 (白いワンピースを着ている人).","Join items with て-form: ワンピースを着て、ネックレスをしています."],
+["V (dictionary) + と: when you do A, B naturally follows. Perfect for directions.","Direction words: まっすぐ行く (go straight) · 右に曲がる (turn right) · 左に曲がる (turn left) · 右側 / 左側 (right / left side).","The second half states what you will find. It isn’t used for requests or orders.","ございます is the very polite あります, used by shop staff.","いらっしゃってください = please come (honorific of 来る)."]];
+C19.forEach((p,i)=>p.more=M19[i]);
+const L=s=>s.trim().split("\n").map(x=>x.split("|"));
+const DL=[
+{em:"🏬",t:"本文1 子供がいなくなってしまったんです。",n:"At the department store, Suzuki tries on jeans and her child goes missing.",sc:[
+{em:"🏬👩👦👖",cap:"Trying on jeans",l:L(`店員A|こちらはいかがですか。|How about this one?
+鈴木幸子|いいですね。|That’s nice.
+店員A|試着なさいますか。|Would you like to try it on?
+鈴木|そうですね。はいてみます。|Yes, I’ll try them on.
+鈴木|伸ちゃん、お母さんが試着している間、ここで待っていてね。|Shin, wait here while Mommy tries them on.
+鈴木伸|うん。|Okay.`)},
+{em:"✂️👖🙂",cap:"Choosing the jeans",l:L(`店員A|お客様、いかがですか。|How are they, ma’am?
+鈴木|いいですね。これにします。でも、少し短くしてください。|Nice. I’ll take these. But please make them a little shorter.
+店員A|はい。|Certainly.`)},
+{em:"😰👦❓🔍",cap:"Where is Shin?",l:L(`店員A|お疲れさまでした。|Thank you for your patience.
+鈴木|いいえ。伸ちゃん、お待たせ。どこにいるの？ 伸ちゃん。|Not at all. Shin, sorry to keep you waiting. Where are you? Shin!
+鈴木|あ、あの、うちの子供を見ませんでしたか。|Um, excuse me, have you seen my child?
+店員A|えっ？|Huh?
+鈴木|私が試着している間に、いなくなってしまったんです。|He went missing while I was trying them on.
+店員A|大変ですね。捜しましょう。|That’s terrible. Let’s look for him.`)}]},
+{em:"🧭",t:"本文3 まっすぐ行くと、エスカレーターがあります。",n:"The child is found at the hat department, and the clerk gives directions.",sc:[
+{em:"☎️🧑‍💼🎩👦",cap:"A phone call from the hat department",l:L(`店員A|はい、婦人服売場です。|Hello, women’s clothing department.
+店員B|もしもし、帽子売場の古谷ですが、迷子のお子さんをこちらで預かっています。鈴木伸ちゃんです。迎えに来てください。|Hello, this is Furuya at the hat department. We’re looking after a lost child, Shin Suzuki. Please come and get him.
+店員A|はい、わかりました。どうも。|Yes, understood. Thank you.`)},
+{em:"🎉👩🏬",cap:"He has been found",l:L(`店員A|お客様、見つかったそうです。|Ma’am, I hear he has been found.
+鈴木|本当ですか。ああ、よかった。|Really? Oh, thank goodness.
+店員A|帽子売場へ迎えにいらっしゃってください。|Please come to the hat department to pick him up.
+鈴木|あのう、帽子売場はどこですか。|Um, where is the hat department?`)},
+{em:"🧭⬆️↪️🎩",cap:"Directions",l:L(`店員A|ここをまっすぐ行くと、エスカレーターがございます。エスカレーターの所を右に曲がってまっすぐ行くと、左側に帽子売場がございます。|If you go straight from here, there is an escalator. Turn right at the escalator and go straight, and the hat department is on your left.
+鈴木|本当にどうもありがとうございました。|Thank you so much.`)}]},
+{em:"👟",t:"文型1 ～てみます",n:"Practice conversations.",sc:[
+{em:"👟🛍️",cap:"At a shoe shop",l:L(`客|この靴、はいてみてもいいですか。|May I try these shoes on?
+店員|ええ、どうぞ。|Yes, please.`)},
+{em:"💐👩‍🏫",cap:"Flower arranging",l:L(`A|母はうちで生け花を教えているんです。|My mother teaches flower arranging at home.
+B|生け花ですか。いいですね。私も今度やってみたいです。|Ikebana? Nice. I’d like to try it next time too.`)},
+{em:"🍙😋",cap:"Inari sushi",l:L(`チン|それは何ですか。|What’s that?
+武|いなりずしです。おいしいですよ。食べてみてください。|Inari sushi. It’s delicious. Please try some.
+チン|ありがとうございます。いただきます。|Thank you. I’ll have some.`)}]},
+{em:"✂️",t:"文型2 ～くします / ～にします",n:"Practice conversations.",sc:[
+{em:"💇✂️",cap:"At the hair salon",l:L(`A|前髪を短くしてください。|Please make my bangs shorter.
+B|はい、わかりました。どのぐらい切りますか。|Sure. How much shall I cut?
+A|そうですね。5センチぐらい切ってください。|Let’s see. About 5 cm, please.`)},
+{em:"❄️🥶",cap:"Too cold",l:L(`A|ちょっと寒いですね。|It’s a bit cold.
+B|そうですね。エアコンを弱くしましょう。|Yes. Let’s turn the air-con down.`)},
+{em:"🍽️🧽",cap:"At a restaurant",l:L(`A|すみません、テーブルの上をきれいにしてください。|Excuse me, please clean the table.
+B|はい。|Certainly.`)}]},
+{em:"😅",t:"文型3 ～てしまいました",n:"Practice conversations.",sc:[
+{em:"🔑😢",cap:"Lost key",l:L(`ワン|先生、あの…。|Teacher, um…
+先生|あ、ワンさん、どうしたんですか。|Oh, Wan. What happened?
+ワン|部屋のかぎをなくしてしまったんです。|I lost my room key.`)},
+{em:"✏️🔍",cap:"Lost eraser",l:L(`A|何を捜しているんですか。|What are you looking for?
+B|消しゴムです。今、落としてしまったんです。|An eraser. I just dropped it.`)},
+{em:"🍽️💥",cap:"Broken plate",l:L(`店員|すみません。お皿を割ってしまいました。|Sorry. I broke a plate.
+店長|だいじょうぶですか。けがをしませんでしたか。|Are you okay? Didn’t you get hurt?`)}]},
+{em:"⏳",t:"文型4 ～間 / ～間に",n:"Practice conversation.",sc:[
+{em:"🧤🛍️",cap:"Lost gloves",l:L(`店員|どうかなさいましたか。|Is something the matter?
+客|あ、あの、手袋を落としてしまったんです。この辺に黒い手袋がありませんでしたか。|Um, I dropped my gloves. Were there any black gloves around here?
+店員|黒い手袋ですか。|Black gloves?
+客|ええ。買い物をしている間に、落としてしまったんです。|Yes. I dropped them while I was shopping.`)}]},
+{em:"👒",t:"文型5 ～ています",n:"Practice conversations.",sc:[
+{em:"🚉👒",cap:"At the station",l:L(`鈴木|マリーさんはどこでしょうか？|Where might Mary be?
+吉田|あ、あそこです。白い帽子をかぶっていますよ。|Oh, over there. She’s wearing a white hat.
+鈴木|ああ、わかりました。マリーさん！|Ah, I see her. Mary!`)},
+{em:"👓➡️👁️",cap:"No glasses today",l:L(`リー|あれ？ ワンさん、今日はめがねをかけていませんね。|Huh? Wan, you’re not wearing glasses today.
+ワン|ええ。今日はコンタクトレンズをしているんです。|Right. I’m wearing contact lenses today.`)},
+{em:"👗📿",cap:"Which person?",l:L(`A|どの人が吉田さんですか。|Which person is Yoshida?
+B|白いワンピースを着て、ネックレスをしている人です。|The one wearing a white dress and a necklace.`)}]}
+];
+const AV=s=>s.includes("伸")?"👦":s.includes("店員")?"🧑‍💼":s.includes("店長")?"👨‍🍳":s.includes("先生")?"👨‍🏫":s.includes("ワン")?"🧑‍🎓":s.includes("客")?"🛍️":s.includes("鈴木")||s==="吉田"||s==="B"?"👩":"🙂";
+function dlg(d){const o=[];return `<section class="card"><h2><span class="em">${d.em}</span>${d.t}</h2><p class="note">${d.n}</p>`+d.sc.map(s=>`<div class="sc"><div class="big">${s.em}</div><div class="note">${s.cap}</div></div>`+s.l.map(([sp,jp,en])=>{if(!o.includes(sp))o.push(sp);return `<div class="row ${o.indexOf(sp)%2?"r":""}"><span class="av">${AV(sp)}</span><div class="bub" onclick="this.classList.toggle('on')"><div class="nm">${sp}</div><div class="jp2">${jp}</div><div class="en2">${en}</div></div></div>`}).join("")).join("")+`</section>`}
+const V19=`迷子|lost child
+子供|child
+店員|shop clerk
+お客様|customer (polite)
+試着|trying on clothes
+待つ|to wait
+短い|short
+疲れる|to get tired
+捜す|to look for
+大変|terrible, hard
+靴|shoes
+帽子|hat
+財布|wallet
+お皿|plate
+割る|to break
+落とす|to drop
+なくす|to lose
+忘れる|to forget
+借りる|to borrow
+お金|money
+手袋|gloves
+前髪|bangs
+切る|to cut
+寒い|cold
+弱い|weak
+左側|left side
+右側|right side
+曲がる|to turn
+本当|really, true
+婦人服売場|women’s clothing department
+帽子売場|hat department
+預かる|to look after
+迎える|to pick up, welcome
+生け花|flower arranging
+教える|to teach
+今度|next time
+電車|train
+音楽|music
+夏休み|summer vacation
+研究室|laboratory
+買い物|shopping
+着る|to wear (clothes)
+はく|to wear (pants, skirt, shoes)
+かぶる|to wear (hat)
+かける|to wear (glasses)
+試着する|to try on
+いなくなる|to disappear, go missing
+見つかる|to be found
+いらっしゃる|to come / go / be (honorific)
+ジーパン|jeans
+スカート|skirt
+ワンピース|dress
+Tシャツ|T-shirt
+着物|kimono
+ネックレス|necklace
+めがね|glasses
+コンタクトレンズ|contact lenses
+ピアス|pierced earring
+ギター|guitar
+弾く|to play (a string instrument)
+自転車|bicycle
+乗る|to ride
+ペン|pen
+書く|to write
+消しゴム|eraser
+かぎ|key
+けが|injury
+ゲーム|game
+ケーキ|cake
+弟|younger brother
+僕|I (male, casual)
+アルバイト|part-time job
+学生会館|student hall
+店長|store manager
+辺|area, vicinity
+黒い|black
+白い|white
+赤い|red
+青い|blue
+気温|air temperature
+高い|high, expensive
+嫌い|dislike
+好き|like
+エアコン|air conditioner
+テーブル|table
+上|top, above
+きれい|clean, pretty
+まっすぐ|straight
+エスカレーター|escalator
+右|right
+左|left
+所|place
+ございます|to be (very polite)
+どうかなさいましたか|Is something the matter?
+いなりずし|inari sushi
+おいしい|delicious
+今日|today
+昨日|yesterday
+今|now
+外|outside
+友達|friend
+先生|teacher
+駅|station
+部屋|room
+お母さん|mother (someone else’s)
+母|mother (my own)`.split("\n").map(x=>x.split("|"));
+const SN=[
+{em:"⏳",t:"文型4 sentences from the book (p. 15)",n:"The six sentences printed under 文型4, in the book’s order.",l:L(`電車に乗っている間、ずっと音楽を聞いていました。|I listened to music the whole time I was on the train.
+友達が先生と話している間、私は研究室の外で待っていました。|While my friend was talking with the teacher, I waited outside the laboratory.
+夏休みの間、ずっと日本でアルバイトをします。|I’ll work part-time in Japan all summer vacation.
+買い物をしている間に、財布を落としてしまいました。|I dropped my wallet while I was shopping.
+弟がゲームをしている間に、僕は弟のケーキを食べました。|While my brother was playing a game, I ate his cake.
+夏休みの間に、北海道へ行きます。|I’ll go to Hokkaido during summer vacation.`)},
+{em:"📝",t:"文型3 sentence 4 and 文型2 notes",n:"More sentences printed on the book pages.",l:L(`昨日は財布を忘れてしまったので、友達にお金を借りました。|I forgot my wallet yesterday, so I borrowed money from a friend.
+東京では、7月ごろから気温が高くなります。|In Tokyo the temperature rises from around July. (Ch. 12: it changes by itself.)
+前はさしみが嫌いでしたが、好きになりました。|I used to dislike sashimi, but now I like it. (Ch. 12: it changed by itself.)`)},
+{em:"✏️",t:"練習a (文型1) Say it like the example",n:"The book gives the cue words. The model answers are my own.",l:L(`例) スカート／はく → このスカート、はいてみてもいいですか。|May I try this skirt on?
+1. ギター／弾く → このギター、弾いてみてもいいですか。|May I try playing this guitar?
+2. 自転車／乗る → この自転車、乗ってみてもいいですか。|May I try riding this bicycle?
+3. ジーパン／はく → このジーパン、はいてみてもいいですか。|May I try these jeans on?
+4. ペン／書く → このペン、書いてみてもいいですか。|May I try writing with this pen?`)},
+{em:"🧤",t:"練習c (文型3・4) Say it like the example",n:"The example is in the 文型4 conversation above. Cues 1 and 2 are from the book. The model answers are my own.",l:L(`1. 財布をなくす／青い財布／買い物をする → 財布をなくしてしまったんです。この辺に青い財布がありませんでしたか。買い物をしている間に、なくしてしまったんです。|I lost my wallet. Was there a blue wallet around here? I lost it while shopping.
+2. ピアスを落とす／赤いピアス／試着する → ピアスを落としてしまったんです。この辺に赤いピアスがありませんでしたか。試着している間に、落としてしまったんです。|I dropped my earring. Was there a red earring around here? I dropped it while trying things on.`)},
+{em:"👗",t:"練習d (文型5) Describe the pictures",n:"The book gives the example and six people. The other five sentences are my own descriptions of the pictures.",l:L(`例) 吉田さんはワンピースを着て、ネックレスをしています。|Yoshida is wearing a dress and a necklace.
+伸ちゃんは赤いTシャツを着て、黄色い帽子をかぶっています。|Shin is wearing a red T-shirt and a yellow hat.
+原さんは紫のブラウスを着て、黒いスカートをはいています。|Hara is wearing a purple blouse and a black skirt.
+本田さんは着物を着ています。|Honda is wearing a kimono.
+佐藤さんはスーツを着て、めがねをかけています。|Sato is wearing a suit and glasses.
+山田さんはジーパンをはいて、サングラスをかけています。|Yamada is wearing jeans and sunglasses.`)}
+];
+const sen=d=>`<section class="card"><h2><span class="em">${d.em}</span>${d.t}</h2><p class="note">${d.n}</p>${exs(d.l)}</section>`;
+let c19v="g";
+function c19(){
+const m=`<div class="modes">${[["g","📚 Grammar"],["c","💬 Conversations"],["w","📝 Vocabulary"]].map(([k,l])=>`<button class="${c19v===k?"on":""}" onclick="c19v='${k}';render()">${l}</button>`).join("")}</div>`;
+if(c19v==="g")return m+cards(C19,"第19課 迷子","Six patterns with step-by-step explanations.",2);
+if(c19v==="w")return m+`<h2 style="margin:6px 0 2px">📝 Vocabulary</h2><p class="note">Tap a row to reveal its meaning when English is hidden.</p>`+tools()+`<section class="card ${hide?"hide-en":""}"><div class="tw"><table>${V19.map(([j,e])=>`<tr onclick="this.classList.toggle('on')"><td class="jp2">${j}</td><td class="en2">${e}</td></tr>`).join("")}</table></div></section>`;
+return m+`<h2 style="margin:6px 0 2px">💬 Conversations</h2><p class="note">Textbook dialogues with scene pictures. Tap a bubble to reveal English when it is hidden.</p>`+tools()+`<div class="${hide?"hide-en":""}">`+DL.map(dlg).join("")+SN.map(sen).join("")+`<section class="card"><h2><span class="em">💡</span>Extra points from the conversations</h2><ul class="more"><li><b>～そうです (I hear that…):</b> 見つかったそうです = I hear he has been found. Plain form + そうです reports what you heard.</li><li><b>お～なさいますか (honorific):</b> 試着なさいますか = Will you try it on? なさる is the respectful form of する.</li><li><b>～ていてね:</b> 待っていてね = please keep waiting. It is friendly and spoken to a child.</li><li><b>お待たせ / お疲れさまでした:</b> sorry for keeping you waiting / thank you for your trouble.</li><li><b>いらっしゃってください:</b> please come. The respectful form of 来る.</li></ul></section></div>`}
+const ALL=[...C15,...C16,...C19].flatMap(p=>p.ex).concat(E17);
+const tabs=[["c15","Ch. 15"],["c16","Ch. 16"],["c17","Ch. 17"],["c19","Ch. 19"],["drill","Drill"],["mock","Mock Test"]];
 let tab="c15",hide=false,furi=true,mode="mc",sc={r:0,n:0},cur=null,fcI=0,fcShow=false;
 const $=s=>document.querySelector(s);
 const sh=a=>[...a].sort(()=>Math.random()-.5);
 function nav(){$("#nav").innerHTML=tabs.map(([k,l])=>`<button role="tab" data-k="${k}" aria-selected="${k===tab}" onclick="go('${k}')">${l}</button>`).join("")}
 function go(k){tab=k;render()}
 function exs(a){return a.map(([j,e])=>`<div class="ex" onclick="this.classList.toggle('on')"><div class="jp">${j}</div><div class="en">${e}</div></div>`).join("")}
-const EM=[["⚖️","💪","🤝","🍰","🏆","🔍","📏","👑"],["💬","📦","🙏","⏰","📖"]];
-function cards(list,title,sub,em){return `<h2 style="margin:6px 0 2px">${title}</h2><p class="note">${sub}</p>`+tools()+`<div class="${hide?'hide-en':''}">`+list.map((p,i)=>`<section class="card"><h2><span class="em">${EM[em][i]}</span>${p.t}</h2><p class="note">${p.n}</p><code class="pat">${p.ex}</code>${exs(p.extra)}</section>`).join("")+`</div>`}
-function tools(){return `<div class="tools"><span>${hide?"Tap a sentence to reveal English":"Study tools"}</span><span><button onclick="hide=!hide;render()">${hide?"Show English":"Hide English"}</button><button onclick="furi=!furi;render()">${furi?"Hide Furigana":"Show Furigana"}</button></span></div>`}
+const EM=[["⚖️","💪","🤝","🍰","🏆","🔍","📏","👑"],["💬","📦","🙏","⏰","📖"],["👗","✂️","😅","⏳","👒","🧭"]];
+function cards(list,title,sub,em){return `<h2 style="margin:6px 0 2px">${title}</h2><p class="note">${sub}</p>`+tools()+`<div class="${hide?'hide-en':''}">`+list.map((p,i)=>`<section class="card"><h2><span class="em">${EM[em][i]}</span>${p.t}</h2><p class="note">${p.n}</p><code class="pat">${p.ex}</code>${p.more?`<ul class="more">${p.more.map(m=>`<li>${m}</li>`).join("")}</ul>`:""}${exs(p.extra)}</section>`).join("")+`</div>`}
+function tools(){return ""}
 function c17(){
 const rows=V.map(v=>`<tr><td>${v[0]}</td><td>${v[2]}</td><td>${v[3]}</td><td><span class="g g${v[4][1]}">${v[4]}</span></td></tr>`).join("");
 return `<h2 style="margin:6px 0 2px">第17課 可能形</h2><p class="note">The potential form says you can do something, or that circumstances allow it.</p>
@@ -180,6 +417,24 @@ c16:[["今日は母の誕生日（　）んです。","な",["の","だ","で"],
 ["芝生に（　）ないでください。","入ら",["入り","入る","入って"],"Group 1 verb: 入る → 入らない."],
 ["Choose the Japanese for “Please don’t eat.”","食べないでください。",["食べてください。","食べないください。","食べなくてください。"],"V(ない) + でください."],
 ["「どうしたんですか。」に答えてください。","階段から落ちたんです。",["階段から落ちてんです。","階段から落ちますんです。","階段を落ちんです。"],"Past explanation: V(た) + んです."]],
+c19:[["この靴、はいて（　）もいいですか。","みて",["みる","みます","みた"],"V(て) + みる = try doing."],
+["少し短（　）してください。","く",["に","な","で"],"い-adj: drop い + くする."],
+["テーブルの上をきれい（　）してください。","に",["く","な","で"],"な-adj + にする."],
+["部屋のかぎをなくして（　）んです。","しまった",["しまう","みた","いる"],"～てしまった = accidentally did."],
+["私が試着している（　）、ここで待っていてください。","間",["前","後","ところ"],"ている間 = while."],
+["買い物をしている（　）、財布を落としてしまいました。","間に",["間","まで","後で"],"Something happened at one point during it: 間に."],
+["電車に乗っている（　）、ずっと音楽を聞いていました。","間",["間に","前に","まで"],"The whole time (ずっと): 間."],
+["赤いTシャツを（　）います。","着て",["着る","着た","着ない"],"て-form + います = wearing."],
+["白い帽子を（　）います。","かぶって",["着て","かけて","して"],"Hats: かぶる."],
+["めがねを（　）います。","かけて",["かぶって","着て","はいて"],"Glasses: かける."],
+["ここをまっすぐ（　）、エスカレーターがございます。","行くと",["行って","行った","行きます"],"V(dict) + と for directions."],
+["見つかった（　）です。(I hear he was found)","そう",["たい","ながら","ように"],"Plain form + そうです = I heard that…"],
+["スカートを（　）います。","はいて",["着て","かぶって","かけて"],"Skirts and pants: はく."],
+["Which sentence means someone changes it on purpose?","部屋をきれいにします。",["部屋がきれいになります。","部屋がきれいです。","部屋はきれいでした。"],"～にする = make it so; ～になる = it becomes."],
+["Which is “make it big”?","大きくする",["大きにする","大きいにする","大きいくする"],"い-adj: 大きい → 大きくする."],
+["Choose the Japanese for “I accidentally broke a plate.”","お皿を割ってしまいました。",["お皿を割ってみました。","お皿を割っています。","お皿を割りません。"],"～てしまいました = did it by accident."],
+["“食べてみてください” means:","Please try eating it",["Please don’t eat it","Please eat it all up","Please stop eating"],"～てみる = try."],
+["“昨日は財布を忘れてしまったので、友達にお金を借りました” means:","I forgot my wallet, so I borrowed money",["I lost my wallet","I lent money to a friend","I bought a wallet"],"忘れてしまった = forgot (regret)."]],
 c17:[["ピアノ（　）弾けます。","が",["を","に","で"],"With the potential form, を usually becomes が."],
 ["刺身が食べ（　）ません。","られ",["れ","せ","ら"],"Group 2: drop る + られる."],
 ["車の運転が（　）ます。","でき",["し","できる","できて"],"する → できる."],
@@ -197,20 +452,24 @@ c15:[["私の部屋は中野にあります。新宿の部屋より駅から近�
 ["東京は日本の都市の中でいちばん人口が多いです。大阪も人が多いですが、東京のほうがずっと多いです。",[["Which city has the largest population?","Tokyo",["Osaka","Both are equal","Not stated"],"いちばん人口が多い."],["Compared with Tokyo, Osaka has…","fewer people",["more people","the same number","no people"],"東京のほうがずっと多い."]]]],
 c16:[["昨日、階段から落ちたんです。冷やしたんですが、まだ痛いんです。今日は病院へいきます。",[["Why is the speaker going to the hospital?","Fell and still has pain",["Wants to rest","Visiting a friend","Has a test"],"Explanation with んです."],["What did the speaker do after falling?","Cooled it",["Took a shower","Ate lunch","Slept"],"冷やした."]]],
 ["ごはんを食べる前に、薬を飲んでください。ごはんを食べた後で、歯をみがきます。",[["When should you take the medicine?","Before eating",["After eating","While eating","Before sleeping"],"食べる前に."],["When does the speaker brush their teeth?","After eating",["Before eating","Never","Before waking up"],"食べた後で."]]]],
+c19:[["帽子売場の店員は、迷子のお子さんを預かっています。鈴木さんは「本当ですか。ああ、よかった。」と言いました。",[["Where is the lost child?","At the hat department",["At the station","At the escalator","At home"],"帽子売場で預かっています."],["How does Suzuki feel?","Relieved",["Angry","Bored","Sleepy"],"ああ、よかった = Oh, thank goodness."]]],
+["鈴木さんはデパートでジーパンをはいてみました。少し長かったので、短くしてください、と言いました。鈴木さんが試着している間に、子供がいなくなってしまいました。",[["What did Suzuki ask the clerk to do?","Make the jeans shorter",["Make them longer","Wash them","Give a discount"],"短くしてください."],["What happened while she was trying them on?","Her child went missing",["She lost her wallet","The shop closed","She met a friend"],"試着している間に、子供がいなくなってしまいました."]]],
+["この道をまっすぐ行くと、エスカレーターがあります。エスカレーターの所を右に曲がると、左側に帽子売場があります。",[["What is there if you go straight?","An escalator",["A hat department","A station","A cafe"],"まっすぐ行くと、エスカレーターがあります."],["Where is the hat department?","On the left after turning right",["On the right after turning left","Straight ahead","Next to the station"],"右に曲がると、左側に帽子売場."]]],
+["吉田さんは白いワンピースを着て、ネックレスをしています。伸ちゃんは赤いTシャツを着て、黄色い帽子をかぶっています。",[["What is Yoshida wearing?","A white dress and a necklace",["A red T-shirt","A yellow hat","Glasses and a suit"],"白いワンピース + ネックレス."],["What is Shin wearing on his head?","A yellow hat",["A white hat","Glasses","Nothing"],"黄色い帽子をかぶっています."]]]],
 c17:[["アルバイト募集。週3日以上できる方。パソコン入力ができる方。来週から始められる方。",[["How many days a week must you be able to work?","3 or more",["1 or 2","Every day","Weekends only"],"週3日以上できる方."],["When must you be able to start?","From next week",["Today","Next month","Tomorrow"],"来週から始められる方."]]],
 ["私は泳ぐことができません。でも、ピアノが弾けます。刺身は食べられませんが、日本料理が作れます。",[["What can’t the speaker do?","Swim and eat sashimi",["Play piano and cook","Swim and cook","Eat sashimi and play piano"],"泳ぐことができません / 食べられません."],["What can the speaker do?","Play piano and make Japanese food",["Swim and eat sashimi","Swim and play piano","Eat sashimi and cook"],"弾けます / 作れます."]]]]};
 const mk=(q,a,w,e)=>{const o=sh([a,...w]);return{q,o,a:o.indexOf(a),e}};
 function gen17(){const v=V[Math.floor(Math.random()*V.length)],neg=Math.random()<.5,a=v[neg?3:2];return mk(`Choose the ${neg?"negative":"affirmative"} potential form of 「${v[0]}」.`,a,sh(V.flatMap(x=>[x[2],x[3]]).filter(x=>x!==a)).slice(0,3),`${v[4]}: ${v[0]} → ${v[2]} / ${v[3]}`)}
 function build(ch){const bk=k=>sh(B[k]).map(x=>mk(...x)),rd=k=>{const r=RD[k][Math.floor(Math.random()*RD[k].length)];return r[1].map(x=>({...mk(...x),p:r[0]}))};
-let q;if(ch==="all")q=sh([...bk("c15").slice(0,2),...bk("c16").slice(0,2),...bk("c17").slice(0,2),gen17(),gen17()]).concat(rd(["c15","c16","c17"][Math.random()*3|0]));
+let q;if(ch==="all")q=sh([...bk("c15").slice(0,2),...bk("c16").slice(0,2),...bk("c17").slice(0,1),...bk("c19").slice(0,2),gen17()]).concat(rd(["c15","c16","c17","c19"][Math.random()*4|0]));
 else if(ch==="c17")q=sh([...bk(ch).slice(0,5),gen17(),gen17(),gen17()]).concat(rd(ch));
 else q=bk(ch).slice(0,8).concat(rd(ch));
 return{ch,qs:q,ans:[],done:false}}
 let T=null;
-const NM={c15:"Chapter 15",c16:"Chapter 16",c17:"Chapter 17",all:"All chapters"};
+const NM={c15:"Chapter 15",c19:"Chapter 19",c16:"Chapter 16",c17:"Chapter 17",all:"All chapters"};
 function ans(i,j){if(T.done)return;T.ans[i]=j;render()}
 function mock(){
-if(!T)return `<h2 style="margin:6px 0 2px">📝 Mock test</h2><p class="note">10 questions per test: grammar and reading. Every test picks and shuffles new questions.</p>`+[["c15","⚖️ Chapter 15 comparisons"],["c16","💬 Chapter 16 explaining and requests"],["c17","💪 Chapter 17 potential form"],["all","🎲 All chapters mixed"]].map(([k,l])=>`<button class="pick" onclick="T=build('${k}');render();scrollTo(0,0)">${l}</button>`).join("");
+if(!T)return `<h2 style="margin:6px 0 2px">📝 Mock test</h2><p class="note">10 questions per test: grammar and reading. Every test picks and shuffles new questions.</p>`+[["c15","⚖️ Chapter 15 comparisons"],["c16","💬 Chapter 16 explaining and requests"],["c17","💪 Chapter 17 potential form"],["c19","👗 Chapter 19 lost child"],["all","🎲 All chapters mixed"]].map(([k,l])=>`<button class="pick" onclick="T=build('${k}');render();scrollTo(0,0)">${l}</button>`).join("");
 const qs=T.qs;let last="",sc=qs.filter((x,i)=>T.ans[i]===x.a).length,n=T.ans.filter(x=>x!==undefined).length;
 const top=T.done?`<div class="card"><h2>🎯 Score: ${sc} / ${qs.length}</h2><p class="note">${sc===qs.length?"Perfect! 🎉":sc>=qs.length*.7?"Nice work! Review the ❌ items below.":"Keep going: read the explanations and try a new test."}</p></div>`:`<p class="note">${NM[T.ch]} · answered ${n} / ${qs.length}</p>`;
 const body=qs.map((x,i)=>{const ps=x.p&&x.p!==last?(last=x.p,`<div class="card"><h2>📖 Reading</h2><p class="jp" style="font-size:1.1rem;line-height:2.2">${x.p}</p></div>`):"";
@@ -219,8 +478,9 @@ const foot=T.done?`<button class="btn" onclick="T=build(T.ch);render();scrollTo(
 return top+body+foot}
 let theme="light";try{theme=localStorage.getItem("th")||"light"}catch(e){}
 function toggleTheme(){theme=theme==="dark"?"light":"dark";try{localStorage.setItem("th",theme)}catch(e){}render()}
-function render(){document.documentElement.dataset.theme=theme;$("#tb").textContent=theme==="dark"?"☀️ Light mode":"🌙 Dark mode";nav();document.body.classList.toggle("nofuri",!furi);$("#fb").textContent=furi?"Hide Furigana":"Show Furigana";const m=$("#app");m.className="t-"+tab;m.innerHTML=tab==="c15"?cards(C15,"第15課 Comparisons","Eight sentence patterns for comparing, ranking and describing.",0):tab==="c16"?cards(C16,"Chapter 16 Explaining and requesting","んです, こと, requests, timing clauses and past explanations.",1):tab==="c17"?c17():tab==="mock"?mock():drill();ruby(document.body)}
-const D="中野=なかの 新中野=しんなかの 近=ちか 東京=とうきょう 大阪=おおさか 人口=じんこう 人気=にんき 多=おお 新宿=しんじゅく 渋谷=しぶや 同=おな 難=むずか 遠=とお 駅=えき 飲=の 頭=あたま 痛=いた 一年=いちねん 雨=あめ 好=す 部屋=へや 台所=だいどころ 広=ひろ 家賃=やちん 安=やす 弟=おとうと 私=わたし 年下=としした 歳=さい 中国=ちゅうごく 日本語=にほんご 日本=にほん 英語=えいご 寒=さむ 軽=かる 琵琶湖=びわこ 湖=みずうみ 大|き=おお 大変=たいへん 大阪=おおさか 中=なか 第=だい 課=か 可能形=かのうけい 文法=ぶんぽう 今日=きょう 母=はは 誕生日=たんじょうび 趣味=しゅみ 映画=えいが 見=み 料理=りょうり 食=た 旅行=りょこう 楽=たの 何|が=なに 何|で=なん 何=なに 浴=あ 消化=しょうか 悪=わる 荷物=にもつ 物=もの 捨=す 芝生=しばふ 入=はい 前=まえ 後=あと 歯=は 来|る=く 来|られ=こ 来|ま=き 来週=らいしゅう 喫茶店=きっさてん 階段=かいだん 落=お 冷=ひ 働=はたら 話=はな 泳=およ 選=えら 弾=ひ 覚=おぼ 起=お 読=よ 漢字=かんじ 車=くるま 運転=うんてん 自転車=じてんしゃ 乗=の 明日=あした 刺身=さしみ 忙=いそが 行=い 持=も お酒=さけ 酒=さけ 週=しゅう 3日=みっか 以上=いじょう 方=かた 人=ひと 始=はじ 学校=がっこう 新聞=しんぶん 都市=とし 病院=びょういん 昨日=きのう 薬=くすり 募集=ぼしゅう 入力=にゅうりょく 作=つく 少=すこ 狭=せま 高=たか 新=あたら 来|た=き 来|て=き 来|い=こ 来|り=き 来|る=く";
+function bar(){$("#stick").className="t-"+tab;const en=["c15","c16","c17","c19"].includes(tab);$("#bar").innerHTML=(en?`<button onclick="hide=!hide;render()">${hide?"Show English":"Hide English"}</button>`:"")+`<button onclick="furi=!furi;render()">${furi?"Hide Furigana":"Show Furigana"}</button><button onclick="toggleTheme()">${theme==="dark"?"☀️ Light":"🌙 Dark"}</button>`}
+function render(){document.documentElement.dataset.theme=theme;nav();document.body.classList.toggle("nofuri",!furi);bar();const m=$("#app");m.className="t-"+tab;m.innerHTML=tab==="c15"?cards(C15,"第15課 Comparisons","Eight sentence patterns for comparing, ranking and describing.",0):tab==="c16"?cards(C16,"Chapter 16 Explaining and requesting","んです, こと, requests, timing clauses and past explanations.",1):tab==="c17"?c17():tab==="c19"?c19():tab==="mock"?mock():drill();ruby(document.body)}
+const D="中野=なかの 新中野=しんなかの 近=ちか 東京=とうきょう 大阪=おおさか 人口=じんこう 人気=にんき 多=おお 新宿=しんじゅく 渋谷=しぶや 同=おな 難=むずか 遠=とお 駅=えき 飲=の 頭=あたま 痛=いた 一年=いちねん 雨=あめ 好=す 部屋=へや 台所=だいどころ 広=ひろ 家賃=やちん 安=やす 弟=おとうと 私=わたし 年下=としした 歳=さい 中国=ちゅうごく 日本語=にほんご 日本=にほん 英語=えいご 寒=さむ 軽=かる 琵琶湖=びわこ 湖=みずうみ 大|き=おお 大変=たいへん 大阪=おおさか 中=なか 第=だい 課=か 可能形=かのうけい 文法=ぶんぽう 今日=きょう 母=はは 誕生日=たんじょうび 趣味=しゅみ 映画=えいが 見=み 料理=りょうり 食=た 旅行=りょこう 楽=たの 何|が=なに 何|で=なん 何=なに 浴=あ 消化=しょうか 悪=わる 荷物=にもつ 物=もの 捨=す 芝生=しばふ 入=はい 前=まえ 後=あと 歯=は 来|る=く 来|られ=こ 来|ま=き 来週=らいしゅう 喫茶店=きっさてん 階段=かいだん 落=お 冷=ひ 働=はたら 話=はな 泳=およ 選=えら 弾=ひ 覚=おぼ 起=お 読=よ 漢字=かんじ 車=くるま 運転=うんてん 自転車=じてんしゃ 乗=の 明日=あした 刺身=さしみ 忙=いそが 行=い 持=も お酒=さけ 酒=さけ 週=しゅう 3日=みっか 以上=いじょう 方=かた 人=ひと 始=はじ 学校=がっこう 新聞=しんぶん 都市=とし 病院=びょういん 昨日=きのう 薬=くすり 募集=ぼしゅう 入力=にゅうりょく 作=つく 少=すこ 狭=せま 高=たか 新=あたら 来|た=き 来|て=き 来|い=こ 来|り=き 来|る=く 迷子=まいご 子供=こども 店員=てんいん 試着=しちゃく 客=きゃく 間=あいだ 待=ま 短=みじか 長=なが 疲=つか 捜=さが 靴=くつ 着|て=き 着|ま=き 着=き 帽子=ぼうし 白=しろ 赤=あか 黒=くろ 青=あお 黄色=きいろ 手袋=てぶくろ 財布=さいふ 割=わ 皿=さら 忘=わす 借=か 金=かね 友達=ともだち 電車=でんしゃ 音楽=おんがく 聞=き 夏休=なつやす 買|い=か 研究室=けんきゅうしつ 外=そと 北海道=ほっかいどう 僕=ぼく 前髪=まえがみ 切=き 寒=さむ 弱=よわ 上=うえ 気温=きおん 嫌=きら 左側=ひだりがわ 右側=みぎがわ 左=ひだり 右=みぎ 所=ところ 本当=ほんとう 売場=うりば 婦人服=ふじんふく 預=あず 迎=むか 曲|が=ま 教=おし 今度=こんど 生|け=い 花=はな 言=い 道=みち 鈴木=すずき 伸=しん 吉田=よしだ 何=なに 客様=きゃくさま 古谷=ふるや 幸子=さちこ 店長=てんちょう 消|し=け 今=いま 辺=へん 学生会館=がくせいかいかん 先生=せんせい 武=たけし 紫=むらさき 書=か 原=はら 本田=ほんだ 佐藤=さとう 山田=やまだ";
 const FR=D.split(" ").map(e=>{const[k,r]=e.split("="),[kj,t]=k.split("|");return[kj,t||"",r]}).sort((a,b)=>b[0].length-a[0].length||(b[1]?1:0)-(a[1]?1:0));
 function ruby(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),ns=[];while(w.nextNode())ns.push(w.currentNode);
 ns.forEach(n=>{const t=n.nodeValue;if(!/[\u4e00-\u9fff]/.test(t)||n.parentNode.closest("ruby,script,style"))return;const f=document.createDocumentFragment();let i=0,b="";
