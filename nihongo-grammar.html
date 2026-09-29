@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#7c4dff"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Nihongo">
 <title>Nihongo Grammar: Chapters 15–17</title>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
@@ -220,7 +219,6 @@ while(i<t.length){const h=FR.find(([k,tl])=>t.startsWith(k,i)&&(!tl||t.startsWit
 if(h){if(b){f.append(b);b=""}const r=document.createElement("ruby");r.append(h[0]);const x=document.createElement("rt");x.textContent=h[2];r.append(x);f.append(r);i+=h[0].length}else b+=t[i++]}
 if(b)f.append(b);n.replaceWith(f)})}
 render();
-if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script>
 </body>
 </html>
