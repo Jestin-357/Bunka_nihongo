@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#7c4dff"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Nihongo">
 <title>Nihongo Grammar: Chapters 15–17</title>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
@@ -81,12 +82,18 @@ main.t-mock{--c:#1c7ed6}nav button[data-k=mock]{border-color:#1c7ed6}nav button[
 .mopts{grid-template-columns:1fr!important}.mopts button{text-align:left}.opts button.sel{border-color:var(--c);background:color-mix(in srgb,var(--c) 18%,var(--card))}
 .opts button:disabled:not(.ok):not(.bad){color:var(--ink);opacity:1}.pick{display:block;width:100%;text-align:left;margin-bottom:10px;font:inherit;padding:14px;border-radius:14px;border:2.5px solid var(--c);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:4px 4px 0 var(--c)}
 .g{padding:1px 9px;border-radius:99px;color:#fff;font-weight:700;font-size:.85rem}.g1{background:#3b82f6}.g2{background:#12b886}.g3{background:#f76707}
+#tb{font:inherit;background:var(--card);border:2px solid #ff3d81;color:#ff3d81;border-radius:99px;padding:3px 12px;cursor:pointer;font-weight:700}
+:root[data-theme="dark"]{--bg:#150d2e;--card:#221647;--ink:#f4efff;--mute:#b6a9df;--line:#3a2b6b}
+:root[data-theme="dark"] body{background:linear-gradient(160deg,#2b1052,#10264d 50%,#0b3b3a) fixed}
+:root[data-theme="dark"] nav{background:#150d2e}
+:root[data-theme="dark"] mark{color:#241a4b}
+:root[data-theme="dark"] main.t-c15{--c:#ff5c99}:root[data-theme="dark"] main.t-c16{--c:#ffa63d}:root[data-theme="dark"] main.t-c17{--c:#2fd9a6}:root[data-theme="dark"] main.t-drill{--c:#a98bff}:root[data-theme="dark"] main.t-mock{--c:#4dabf7}
 </style>
 </head>
 <body>
 <header>
 <h1>日本語 文法ノート</h1>
-<p class="sub">Chapters 15, 16 and 17: study the patterns, then drill them.</p><p class="sub"><button id="fb" onclick="furi=!furi;render()"></button></p>
+<p class="sub">Chapters 15, 16 and 17: study the patterns, then drill them.</p><p class="sub"><button id="fb" onclick="furi=!furi;render()"></button> <button id="tb" onclick="toggleTheme()"></button></p>
 <nav id="nav" role="tablist"></nav>
 </header>
 <main id="app"></main>
@@ -210,7 +217,9 @@ const body=qs.map((x,i)=>{const ps=x.p&&x.p!==last?(last=x.p,`<div class="card">
 return ps+`<div class="card"><p><b>${i+1}.</b> ${x.q}</p><div class="opts mopts">${x.o.map((o,j)=>`<button class="${T.done?(j===x.a?"ok":T.ans[i]===j?"bad":""):(T.ans[i]===j?"sel":"")}" ${T.done?"disabled":""} onclick="ans(${i},${j})">${o}</button>`).join("")}</div>${T.done?`<p class="note">${T.ans[i]===x.a?"✅":"❌"} ${x.e}</p>`:""}</div>`}).join("");
 const foot=T.done?`<button class="btn" onclick="T=build(T.ch);render();scrollTo(0,0)">New test (new questions)</button> <button class="btn" onclick="T=null;render();scrollTo(0,0)">Change chapter</button>`:`<button class="btn" onclick="T.done=true;render();scrollTo(0,0)">Submit test</button>`;
 return top+body+foot}
-function render(){nav();document.body.classList.toggle("nofuri",!furi);$("#fb").textContent=furi?"Hide Furigana":"Show Furigana";const m=$("#app");m.className="t-"+tab;m.innerHTML=tab==="c15"?cards(C15,"第15課 Comparisons","Eight sentence patterns for comparing, ranking and describing.",0):tab==="c16"?cards(C16,"Chapter 16 Explaining and requesting","んです, こと, requests, timing clauses and past explanations.",1):tab==="c17"?c17():tab==="mock"?mock():drill();ruby(document.body)}
+let theme="light";try{theme=localStorage.getItem("th")||"light"}catch(e){}
+function toggleTheme(){theme=theme==="dark"?"light":"dark";try{localStorage.setItem("th",theme)}catch(e){}render()}
+function render(){document.documentElement.dataset.theme=theme;$("#tb").textContent=theme==="dark"?"☀️ Light mode":"🌙 Dark mode";nav();document.body.classList.toggle("nofuri",!furi);$("#fb").textContent=furi?"Hide Furigana":"Show Furigana";const m=$("#app");m.className="t-"+tab;m.innerHTML=tab==="c15"?cards(C15,"第15課 Comparisons","Eight sentence patterns for comparing, ranking and describing.",0):tab==="c16"?cards(C16,"Chapter 16 Explaining and requesting","んです, こと, requests, timing clauses and past explanations.",1):tab==="c17"?c17():tab==="mock"?mock():drill();ruby(document.body)}
 const D="中野=なかの 新中野=しんなかの 近=ちか 東京=とうきょう 大阪=おおさか 人口=じんこう 人気=にんき 多=おお 新宿=しんじゅく 渋谷=しぶや 同=おな 難=むずか 遠=とお 駅=えき 飲=の 頭=あたま 痛=いた 一年=いちねん 雨=あめ 好=す 部屋=へや 台所=だいどころ 広=ひろ 家賃=やちん 安=やす 弟=おとうと 私=わたし 年下=としした 歳=さい 中国=ちゅうごく 日本語=にほんご 日本=にほん 英語=えいご 寒=さむ 軽=かる 琵琶湖=びわこ 湖=みずうみ 大|き=おお 大変=たいへん 大阪=おおさか 中=なか 第=だい 課=か 可能形=かのうけい 文法=ぶんぽう 今日=きょう 母=はは 誕生日=たんじょうび 趣味=しゅみ 映画=えいが 見=み 料理=りょうり 食=た 旅行=りょこう 楽=たの 何|が=なに 何|で=なん 何=なに 浴=あ 消化=しょうか 悪=わる 荷物=にもつ 物=もの 捨=す 芝生=しばふ 入=はい 前=まえ 後=あと 歯=は 来|る=く 来|られ=こ 来|ま=き 来週=らいしゅう 喫茶店=きっさてん 階段=かいだん 落=お 冷=ひ 働=はたら 話=はな 泳=およ 選=えら 弾=ひ 覚=おぼ 起=お 読=よ 漢字=かんじ 車=くるま 運転=うんてん 自転車=じてんしゃ 乗=の 明日=あした 刺身=さしみ 忙=いそが 行=い 持=も お酒=さけ 酒=さけ 週=しゅう 3日=みっか 以上=いじょう 方=かた 人=ひと 始=はじ 学校=がっこう 新聞=しんぶん 都市=とし 病院=びょういん 昨日=きのう 薬=くすり 募集=ぼしゅう 入力=にゅうりょく 作=つく 少=すこ 狭=せま 高=たか 新=あたら 来|た=き 来|て=き 来|い=こ 来|り=き 来|る=く";
 const FR=D.split(" ").map(e=>{const[k,r]=e.split("="),[kj,t]=k.split("|");return[kj,t||"",r]}).sort((a,b)=>b[0].length-a[0].length||(b[1]?1:0)-(a[1]?1:0));
 function ruby(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),ns=[];while(w.nextNode())ns.push(w.currentNode);
@@ -219,6 +228,7 @@ while(i<t.length){const h=FR.find(([k,tl])=>t.startsWith(k,i)&&(!tl||t.startsWit
 if(h){if(b){f.append(b);b=""}const r=document.createElement("ruby");r.append(h[0]);const x=document.createElement("rt");x.textContent=h[2];r.append(x);f.append(r);i+=h[0].length}else b+=t[i++]}
 if(b)f.append(b);n.replaceWith(f)})}
 render();
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script>
 </body>
 </html>
